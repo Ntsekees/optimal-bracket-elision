@@ -35,9 +35,34 @@ def with_optimal_bracket_elision(
         dbs.add(cb)
         cb, ci = b, i
     kbi = ci + si  # ℕ Kept Bracket Index
-    obl.append(bl[kbi])
+    obl.append(cb)
     si = kbi + 1
 
+# ↓ Alternative algorithm with the same behavior:
+def with_optimal_bracket_elision_alt(
+  bl :list   # ⟨𝕋⟩ Bracket List
+):
+  assert(isinstance(bl, list))
+  assert("" not in bl)
+  bl.append("")
+  obl = []       # ⟨𝕋⟩ Optimal Bracket List
+  cb, ci = "", 0 # 𝕋 Candidate Bracket; ℕ? Candidate Index
+  si = 0         # ℕ Start Index
+  while True:
+    dbs = set()  # {𝕋} Discarded Bracket Set
+    for i, b in enumerate(bl[si:]):
+      if b == "":
+        if i == 0:
+          ci = None
+        break
+      if b != cb and b not in dbs:
+        dbs.add(cb)
+        cb, ci = b, i
+    if ci == None:
+      return obl
+    kbi = ci + si  # ℕ Kept Bracket Index
+    obl.append(cb)
+    si = kbi + 1
 
 # ============================================================ #
 
