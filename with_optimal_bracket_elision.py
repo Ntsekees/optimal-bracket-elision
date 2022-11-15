@@ -31,9 +31,8 @@ def with_optimal_bracket_elision(
         elif len(dbs) == 0:
           return obl + [cb] * i
         break
-      pcb = cb  # 𝕋 Previous Candidate Bracket
-      if b != pcb and b not in dbs:
-        dbs.add(pcb)
+      if b != cb and b not in dbs:
+        dbs.add(cb)
         cb, ci = b, i
     kbi = ci + si  # ℕ Kept Bracket Index
     obl.append(bl[kbi])
