@@ -16,7 +16,7 @@ main = do
   case nth 0 args of
     Nothing -> error "⚠ No argument provided! ⚠"
     Just s -> putStrLn $
-      (wordwise with_optimal_bracket_elision s) ++ "\n"
+      wordwise with_optimal_bracket_elision s
 
 nth :: Int -> [a] -> Maybe a
 nth _ []      = Nothing
