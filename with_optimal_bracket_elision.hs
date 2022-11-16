@@ -1,5 +1,8 @@
 {-# LANGUAGE UnicodeSyntax #-}
 
+-- COPYRIGHT LICENSE: CC0 version 1.0. For reading a copy of this license, please see the file ⟪CC0 1.0 LICENSE.txt⟫.
+-- SPDX-License-Identifier: CC0-1.0
+
 import System.Environment
 import Data.List.Split (splitOn)
 import Data.List (intercalate)
