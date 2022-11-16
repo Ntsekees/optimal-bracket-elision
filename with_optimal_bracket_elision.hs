@@ -15,16 +15,18 @@ main = do
   args <- getArgs
   case nth 0 args of
     Nothing -> error "⚠ No argument provided! ⚠"
-    Just s -> putStrLn ((intercalate " " (
-      with_optimal_bracket_elision (splitOn " " s))) ++ "\n")
-    
-     
+    Just s -> putStrLn $
+      (wordwise with_optimal_bracket_elision s) ++ "\n"
+
 nth :: Int -> [a] -> Maybe a
 nth _ []     = Nothing
 nth i (x:xl) =
   if i == 0
   then Just x
   else nth (i - 1) xl
+
+wordwise :: ([String] -> [String]) -> String -> String
+wordwise f = intercalate " " . f . splitOn " "
 
 with_optimal_bracket_elision :: [String] -> [String]
 with_optimal_bracket_elision bl =
