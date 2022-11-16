@@ -64,7 +64,7 @@ next_kept_bracket
     if i == 0
     then Nothing
     else Just (cb, ci)
-  | ((b /= cb) && not (elem b dbs)) =
+  | b /= cb && not (elem b dbs) =
     next_kept_bracket l (i + 1) (Set.insert cb dbs) (b, i)
   | otherwise =
     next_kept_bracket l (i + 1) dbs (cb, ci)
