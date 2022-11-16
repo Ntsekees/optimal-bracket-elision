@@ -19,7 +19,7 @@ main = do
       (wordwise with_optimal_bracket_elision s) ++ "\n"
 
 nth :: Int -> [a] -> Maybe a
-nth _ []     = Nothing
+nth _ []      = Nothing
 nth i (x : l) =
   if i == 0
   then Just x
