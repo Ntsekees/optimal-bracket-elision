@@ -34,9 +34,8 @@ def with_optimal_bracket_elision(
       if b != cb and b not in dbs:
         dbs.add(cb)
         cb, ci = b, i
-    kbi = ci + si  # ℕ Kept Bracket Index
     obl.append(cb)
-    si = kbi + 1
+    si += ci + 1
 
 # ↓ Alternative algorithm with the same behavior:
 def with_optimal_bracket_elision_alt(
@@ -60,9 +59,8 @@ def with_optimal_bracket_elision_alt(
         cb, ci = b, i
     if ci == None:
       return obl
-    kbi = ci + si  # ℕ Kept Bracket Index
     obl.append(cb)
-    si = kbi + 1
+    si += ci + 1
 
 # ============================================================ #
 
